@@ -1,20 +1,27 @@
 import React, {Component} from "react";
-import Score from "./Score";
+import Student from "./Student";
 
 
 export default class Roster extends Component{
     render(){
-        console.log(this.props)
+        const studentRoster = this.props.students.map((student, index)=>{
+            return (
+              <Student 
+              student = {student}
+              key = {`student-${index}`}
+                
+            //   key={`student-${index}`}
+            //   name={student.name}
+            //   bio={student.bio}
+            //   scores={student.scores}
+              />
+            )
+          })
         return(
             <>
-            <h2>{this.props.name}</h2>
-            <p>{this.props.bio}</p>
-            {this.props.scores.map((score, index) =>{return(
-                <Score 
-                key={`score-${index}`}
-                score={score}/>
-            )     
-            })}
+            <h1>Student Roster</h1>
+            {studentRoster}
+
             </>
         )
     }
